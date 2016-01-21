@@ -1,3 +1,5 @@
 cli_output = `cf help`
 
-puts cli_output.gsub /CF/i, 'awesome'
+cli_output.gsub /CF/i, 'awesome'
+
+puts cli_output += "\nPubtoolsRoolz"
