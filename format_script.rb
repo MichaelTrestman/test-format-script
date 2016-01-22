@@ -13,7 +13,8 @@ table_regex = /(^##[^\n]*?$)(\n(^[^\n]+?\|[^\n]+?$))/
 cli_output.gsub!(table_regex){"#{$1}\nName   |   Description\n------------|------------#{$2}"}
 
 chunk_regex = /(##.*?\/a>)(.*?):(.*?)(?=#)/m
+title = "---\ntitle: CF CLI\n---\n\n"
 
-File.open('cli_help.html.md.erb', "w") { |file| << "---\ntitle: CF CLI\n---\n\n"}
+File.open('cli_help.html.md.erb', "w") { |file| file << title }
 File.open('cli_help.html.md.erb', "a") { |file| file << cli_output }
 
