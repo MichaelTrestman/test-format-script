@@ -14,6 +14,6 @@ cli_output.gsub!(table_regex){"#{$1}\nName   |   Description\n------------|-----
 
 chunk_regex = /(##.*?\/a>)(.*?):(.*?)(?=#)/m
 
-
-File.open('cli_help.html.md.erb', "w") { |file| file << cli_output }
+File.open('cli_help.html.md.erb', "w") { |file| << "---\ntitle: CF CLI\n---\n\n"}
+File.open('cli_help.html.md.erb', "a") { |file| file << cli_output }
 
