@@ -1,12 +1,12 @@
 languages = {
-	"German": "de_DE",
-	"English": "en_US",
-	"Spanish": "es_ES",
-	"French": "fr_FR",
-	"Italian": "it_IT",
-	"Japanese": "ja_JP",
-	"Portuguese (Brazil)": "pt_BR",
-	"Chinese (simplified)": "zh_Hans"
+	"German"=> "de_DE",
+	"English"=> "en_US",
+	"Spanish"=> "es_ES",
+	"French"=> "fr_FR",
+	"Italian"=> "it_IT",
+	"Japanese"=> "ja_JP",
+	"Portuguese (Brazil)"=> "pt_BR",
+	"Chinese (simplified)"=> "zh_Hans"
 }
 
 
