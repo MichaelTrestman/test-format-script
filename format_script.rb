@@ -9,8 +9,8 @@ languages = {
 	"Chinese (simplified)"=> "zh_Hans"
 }
 
-table_line_regex = /^\s{2,}(\w.+?)\s{2,}(\S.+?)$/
-table_regex = /(^##[^\n]*?$)(\n(^[^\n]+?\|[^\n]+?$))/
+table_line_regex = /^\s{2,}(\S.+?)\s{1,}(?!-)(\S.+?)$/
+table_regex = /(^##[^\n]*?$)\n(^[^\n]+?\|[^\n]+?$)/
 
 
 
@@ -21,11 +21,14 @@ languages.each do |lang, code|
 	cli_output = File.read('help.txt')
 
 	cli_output.gsub!(/\s*?$/, '')
-	cli_output.gsub!(/^([^\s].*?):$/){"## <a id='#{$1.downcase.gsub(' ','-')}'></a>#{$1}" }
-	cli_output.gsub!(table_line_regex){ "   #{$1}  |  #{$2}"}
-	cli_output.gsub!(table_regex){"#{$1}\nName   |   Description\n------------|------------#{$2}"}
-	cli_output.gsub!('_', '\_')
 
+	cli_output.gsub!(/^([^\s].*?)(:|：)$/){"## <a id='#{$1.downcase.gsub(' ','-')}'></a>#{$1}" }
+
+	cli_output.gsub!(table_line_regex){ "   #{$1}  |  #{$2}"}
+
+	cli_output.gsub!(table_regex){"#{$1}\nName   |   Description\n------------|------------\n#{$2}"}
+
+	cli_output.gsub!('_', '\_')
 
 	title = "---\ntitle: CF CLI #{lang}\n---\n\n"
 
